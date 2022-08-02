@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+</head>
+<body>
+	<h1>Exam <%- exam_code %> for <%- course_id %></h1>
+	<h3>ID: <%- s_id %></h3>
+
+	<br><br>
+	<h2>Questions</h2>
+
+	<form method="POST">
+	<% if (questions.length > 0) { %>	
+	<table border='1' width='100%'>
+		<tr>
+			<th>Q. No.</th>
+			<th>Question</th>
+			<th>Option A</th>
+			<th>Option B</th>
+			<th>Option C</th>
+			<th>Option D</th>
+			<th>Weightage</th>
+			<th>Answer</th>
+		</tr>
+	
+		<% for (var i = 0; i < questions.length; i++) { %>
+			<tr>
+				
+				<td><%- questions[i].question_no %></td>
+				<td><%- questions[i].question_statement %></td>
+				<td><%- questions[i].optionA %></td>
+				<td><%- questions[i].optionB %></td>
+				<td><%- questions[i].optionC %></td>
+				<td><%- questions[i].optionD %></td>
+				<td><%- questions[i].weightage %></td>
+				<td><input type="text" name="<%- questions[i].question_no %>"></td>
+			</tr>			
+		<% } %>
+		
+	</table>
+	<button type="submit">Open Course</button>	
+	</form>
+	<% } else { %>
+		<h3>Questions Data not Found</h3>
+	<% } %>
+</body>
+</html>

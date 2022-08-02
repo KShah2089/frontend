@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+</head>
+<body>
+	<h1>Welcome to Course Page of <%- course_id %></h1>
+	<h3>ID: <%- s_id %></h3>
+
+	<br><br>
+	<h2>Upcoming Exams</h2>
+
+	<form method="POST">
+	<% if (upcoming_exams.length > 0) { %>	
+	<table border='1' width='50%'>
+		<tr>
+			<th>Select</th>
+			<th>Exam Code</th>
+			<th>Exam Date</th>
+		</tr>
+	
+		<% for (var i = 0; i < upcoming_exams.length; i++) { %>
+			<tr>
+				<td><input type="radio" name="exam_code" value="<%- upcoming_exams[i].exam_code %>"></td>
+				<td><%- upcoming_exams[i].exam_code %></td>
+				<td><%- upcoming_exams[i].exam_date %></td>
+			</tr>			
+		<% } %>
+		
+	</table>
+	<button type="submit">Open Course</button>	
+	</form>
+	<% } else { %>
+		<h3>Exams Data not Found</h3>
+	<% } %>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student Home</title>
+</head>
+<body>
+	<h1>Courses Opted</h1>
+	<p>ID: <%- s_id %></p>
+	
+    	<!-- <button type="submit" formaction="/ic">Change Personal Information</button>			 -->
+    
+    <!-- display all courses with radio button to select one  of them -->
+   	
+	<form method="POST">
+	<% if (courses.length > 0) { %>	
+	<table border='1' width='50%'>
+		<tr>
+			<th>Select</th>
+			<th>Course ID</th>
+			<th>Course Name</th>
+		</tr>
+	
+		<% for (var i = 0; i < courses.length; i++) { %>
+			<tr>
+				<td><input type="radio" name="course_id" value="<%- courses[i].course_id %>"></td>
+				<td><%- courses[i].course_id %></td>
+				<td><%- courses[i].name %></td>				
+			</tr>			
+		<% } %>
+		
+	</table>
+	<button type="submit">Open Course</button>	
+	</form>
+
+
+	<% } else { %>
+		<h3>Courses Data not Found</h3>
+	<% } %>
+
+
+</body>
+</html>
